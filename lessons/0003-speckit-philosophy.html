@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3: SpecKit Philosophy & Workflow</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <article>
+    <h1>Lesson 3: SpecKit Philosophy & Workflow</h1>
+    <p><em>Structured, extensible, GitHub-native</em></p>
+
+    <h2>SpecKit's Philosophy</h2>
+
+    <p>SpecKit (GitHub's official SDD toolkit) emphasizes structure and extensibility:</p>
+
+    <dl>
+      <dt><strong>Intent-driven development</strong></dt>
+      <dd>Specifications define the "what" before the "how."</dd>
+      
+      <dt><strong>Multi-step refinement</strong></dt>
+      <dd>Each phase is a distinct command with its own artifact.</dd>
+      
+      <dt><strong>Extensibility by design</strong></dt>
+      <dd>Extensions, presets, and bundles allow deep customization.</dd>
+      
+      <dt><strong>Constitution-first</strong></dt>
+      <dd>Project principles are established before any feature work.</dd>
+    </dl>
+
+    <h2>The SpecKit Workflow</h2>
+
+    <div class="workflow">
+      <div class="workflow-steps">
+        <span class="workflow-step">/speckit.constitution</span>
+        <span class="workflow-arrow">→</span>
+        <span class="workflow-step">/speckit.specify</span>
+        <span class="workflow-arrow">→</span>
+        <span class="workflow-step">/speckit.plan</span>
+        <span class="workflow-arrow">→</span>
+        <span class="workflow-step">/speckit.tasks</span>
+        <span class="workflow-arrow">→</span>
+        <span class="workflow-step">/speckit.implement</span>
+      </div>
+    </div>
+
+    <h3>Constitution (Once per Project)</h3>
+    <p><code>/speckit.constitution</code> establishes project-wide principles that guide all work. Unique to SpecKit.</p>
+
+    <h3>Specify → Plan → Tasks</h3>
+    <p>SpecKit separates concerns across commands:</p>
+    <ul>
+      <li><code>/speckit.specify</code> — What to build (requirements)</li>
+      <li><code>/speckit.plan</code> — How to build it (tech stack, architecture)</li>
+      <li><code>/speckit.tasks</code> — Actionable breakdown</li>
+    </ul>
+
+    <div class="insight">
+      <strong>Key Differentiator</strong>
+      SpecKit separates "what" from "how." OpenSpec combines them in a single propose.
+    </div>
+
+    <h2>The Extension System</h2>
+
+    <p>SpecKit's major differentiator:</p>
+    <table>
+      <thead>
+        <tr><th>Component</th><th>Purpose</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Extensions</strong></td><td>Add new commands</td><td>Jira integration</td></tr>
+        <tr><td><strong>Presets</strong></td><td>Customize templates</td><td>Compliance format</td></tr>
+        <tr><td><strong>Bundles</strong></td><td>Role-based packs</td><td>Security researcher</td></tr>
+      </tbody>
+    </table>
+
+    <pre># Install extension
+specify extension add jira-integration
+
+# Install bundle
+specify bundle install security-researcher</pre>
+
+    <h2>Strengths</h2>
+    <ul>
+      <li><strong>Constitution</strong> — Project-wide principles</li>
+      <li><strong>Granular phases</strong> — Clear separation of concerns</li>
+      <li><strong>Extension system</strong> — Deeply customizable</li>
+      <li><strong>Converge command</strong> — Built-in reconciliation</li>
+      <li><strong>125k GitHub stars</strong> — Massive community</li>
+    </ul>
+
+    <h2>Potential Gaps</h2>
+    <ul>
+      <li>More ceremony (multiple commands)</li>
+      <li>No explore phase (clarify is structured, not conversational)</li>
+      <li>No built-in archive state</li>
+      <li>Greenfield-optimized (less brownfield tooling)</li>
+      <li>Python dependency (heavier setup)</li>
+    </ul>
+
+    <h2>Check Your Understanding</h2>
+    <div class="quiz" data-correct="c" data-explanation="The constitution establishes project-wide principles that guide all development.">
+      <h4>What is SpecKit's "constitution"?</h4>
+      <ul class="quiz-options">
+        <li><button data-answer="a">A list of approved dependencies for the project</button></li>
+        <li><button data-answer="b">The first spec document created for a feature</button></li>
+        <li><button data-answer="c">Project-wide principles that guide all development</button></li>
+        <li><button data-answer="d">A template for writing requirements documents</button></li>
+      </ul>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <h2>Primary Source</h2>
+    <blockquote>
+      <a href="https://github.com/github/spec-kit/blob/main/spec-driven.md">Complete Spec-Driven Development Methodology</a> — SpecKit official
+    </blockquote>
+
+    <p class="teacher-reminder">
+      <strong>Want to compare?</strong> Ask me to show how the same feature would be specced in both tools.
+    </p>
+
+    <nav class="lesson-nav">
+      <a href="0002-openspec-philosophy.html">← Previous: OpenSpec Philosophy</a>
+      <a href="0004-head-to-head.html">Next: Head-to-Head Comparison →</a>
+    </nav>
+  </article>
+  <script src="../assets/quiz.js"></script>
+</body>
+</html>

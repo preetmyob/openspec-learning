@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossary: Spec-Driven Development</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <article>
+    <h1>Glossary</h1>
+    <p><em>Spec-Driven Development terminology for OpenSpec and SpecKit</em></p>
+
+    <h2>Core Concepts</h2>
+
+    <dl>
+      <dt id="sdd"><strong>Spec-Driven Development (SDD)</strong></dt>
+      <dd>A methodology where specifications are written <em>before</em> code, serving as the source of truth for both humans and AI agents. The spec becomes the contract that guides generation, testing, and validation.</dd>
+
+      <dt id="spec"><strong>Specification (Spec)</strong></dt>
+      <dd>A structured document describing <em>what</em> to build and <em>why</em>, independent of implementation details. Contains requirements, acceptance criteria, and constraints.</dd>
+
+      <dt id="living-spec"><strong>Living Spec</strong></dt>
+      <dd>A specification that automatically updates as implementation evolves, staying synchronized with the actual codebase. Contrast with <a href="#static-spec">static spec</a>.</dd>
+
+      <dt id="static-spec"><strong>Static Spec</strong></dt>
+      <dd>A specification that remains fixed after creation, requiring manual updates when implementation diverges. Both OpenSpec and SpecKit use static specs.</dd>
+
+      <dt id="spec-drift"><strong>Spec Drift</strong></dt>
+      <dd>The divergence between a specification and actual implementation over time. A key challenge with static specs that both tools attempt to mitigate.</dd>
+
+      <dt id="artifact"><strong>Artifact</strong></dt>
+      <dd>A document or file produced during the SDD workflow. Examples: proposal, design, tasks, requirements.</dd>
+    </dl>
+
+    <h2>OpenSpec Terminology</h2>
+
+    <dl>
+      <dt id="change"><strong>Change</strong></dt>
+      <dd>OpenSpec's unit of work. Each change gets its own folder under <code>openspec/changes/</code> containing all related artifacts (proposal, specs, design, tasks).</dd>
+
+      <dt id="proposal"><strong>Proposal</strong></dt>
+      <dd>The "why" document. Captures the reason for a change, what's affected, and impact. Created via <code>/opsx:propose</code>.</dd>
+
+      <dt id="delta-marker"><strong>Delta Marker</strong></dt>
+      <dd>OpenSpec's notation for tracking changes: <code>ADDED</code>, <code>MODIFIED</code>, <code>REMOVED</code>. Indicates how requirements relate to existing functionality.</dd>
+
+      <dt id="explore"><strong>Explore</strong></dt>
+      <dd>OpenSpec's discovery phase via <code>/opsx:explore</code>. A "no-stakes thinking partner" that reads code, weighs options, and shapes a plan before commitment.</dd>
+
+      <dt id="apply"><strong>Apply</strong></dt>
+      <dd>Implementation phase via <code>/opsx:apply</code>. Executes the tasks defined in the change.</dd>
+
+      <dt id="archive"><strong>Archive</strong></dt>
+      <dd>Completion phase via <code>/opsx:archive</code>. Moves the completed change to <code>openspec/changes/archive/</code> with timestamp.</dd>
+
+      <dt id="store"><strong>Store (Beta)</strong></dt>
+      <dd>OpenSpec's cross-repo planning feature. A separate repo containing specs shared across multiple implementation repos.</dd>
+    </dl>
+
+    <h2>SpecKit Terminology</h2>
+
+    <dl>
+      <dt id="constitution"><strong>Constitution</strong></dt>
+      <dd>SpecKit's project principles document. Created via <code>/speckit.constitution</code>, it defines governing guidelines that shape all subsequent development.</dd>
+
+      <dt id="specify"><strong>Specify</strong></dt>
+      <dd>Requirements phase via <code>/speckit.specify</code>. Defines <em>what</em> to build focused on the "what" and "why", not tech stack.</dd>
+
+      <dt id="plan"><strong>Plan</strong></dt>
+      <dd>Technical design phase via <code>/speckit.plan</code>. Adds implementation details: tech stack, architecture, patterns.</dd>
+
+      <dt id="tasks"><strong>Tasks</strong></dt>
+      <dd>Breakdown phase via <code>/speckit.tasks</code>. Generates actionable task list from the plan.</dd>
+
+      <dt id="implement"><strong>Implement</strong></dt>
+      <dd>Execution phase via <code>/speckit.implement</code>. Builds the feature according to the plan.</dd>
+
+      <dt id="converge"><strong>Converge</strong></dt>
+      <dd>Reconciliation via <code>/speckit.converge</code>. Assesses codebase against spec/plan/tasks, appending remaining work as new tasks.</dd>
+
+      <dt id="clarify"><strong>Clarify</strong></dt>
+      <dd>Optional phase via <code>/speckit.clarify</code>. Identifies underspecified areas before planning. Formerly called "quizme".</dd>
+
+      <dt id="extension"><strong>Extension</strong></dt>
+      <dd>SpecKit plugin that adds new commands and capabilities beyond the core workflow.</dd>
+
+      <dt id="preset"><strong>Preset</strong></dt>
+      <dd>SpecKit customization that modifies how existing commands behave (templates, terminology, formats).</dd>
+
+      <dt id="bundle"><strong>Bundle</strong></dt>
+      <dd>SpecKit package combining extensions, presets, and workflows for a specific role (e.g., product manager, security researcher).</dd>
+    </dl>
+
+    <h2>Workflow Phases</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>OpenSpec</th>
+          <th>SpecKit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Discovery</td>
+          <td><code>/opsx:explore</code></td>
+          <td><code>/speckit.clarify</code></td>
+        </tr>
+        <tr>
+          <td>Requirements</td>
+          <td><code>/opsx:propose</code></td>
+          <td><code>/speckit.specify</code></td>
+        </tr>
+        <tr>
+          <td>Design</td>
+          <td>(included in propose)</td>
+          <td><code>/speckit.plan</code></td>
+        </tr>
+        <tr>
+          <td>Task Breakdown</td>
+          <td>(included in propose)</td>
+          <td><code>/speckit.tasks</code></td>
+        </tr>
+        <tr>
+          <td>Implementation</td>
+          <td><code>/opsx:apply</code></td>
+          <td><code>/speckit.implement</code></td>
+        </tr>
+        <tr>
+          <td>Completion</td>
+          <td><code>/opsx:archive</code></td>
+          <td>(manual)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Spec Formats</h2>
+
+    <dl>
+      <dt id="ears"><strong>EARS (Easy Approach to Requirements Syntax)</strong></dt>
+      <dd>A structured notation: <code>WHEN [condition] THE SYSTEM SHALL [behavior]</code>. Used by Kiro; informally influences both OpenSpec and SpecKit.</dd>
+
+      <dt id="gherkin"><strong>Given/When/Then (Gherkin-style)</strong></dt>
+      <dd>Scenario format: <code>GIVEN [context] WHEN [action] THEN [outcome]</code>. Common in both tools for acceptance criteria.</dd>
+
+      <dt id="capability"><strong>Capability</strong></dt>
+      <dd>OpenSpec term for a coherent unit of functionality. Specs are organized around capabilities, which can be <code>ADDED</code> or <code>MODIFIED</code>.</dd>
+    </dl>
+
+    <h2>Technical Terms</h2>
+
+    <dl>
+      <dt id="greenfield"><strong>Greenfield</strong></dt>
+      <dd>A new project with no existing codebase. Both tools support greenfield, but SpecKit's full workflow is optimized for it.</dd>
+
+      <dt id="brownfield"><strong>Brownfield</strong></dt>
+      <dd>An existing codebase with established patterns. OpenSpec's delta markers and change-focused workflow are designed for brownfield.</dd>
+
+      <dt id="slash-command"><strong>Slash Command</strong></dt>
+      <dd>AI assistant invocation like <code>/opsx:propose</code> or <code>/speckit.specify</code>. The primary interface for both tools.</dd>
+
+      <dt id="agent-agnostic"><strong>Agent-Agnostic</strong></dt>
+      <dd>Works with multiple AI coding assistants. Both OpenSpec (25+) and SpecKit (30+) claim broad compatibility.</dd>
+    </dl>
+
+    <p class="teacher-reminder">
+      <strong>Questions about terms?</strong> Ask me to explain any concept in more depth or show examples from real specs.
+    </p>
+
+  </article>
+</body>
+</html>

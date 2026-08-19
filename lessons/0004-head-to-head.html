@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4: Head-to-Head Comparison</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <article>
+    <h1>Lesson 4: Head-to-Head Comparison</h1>
+    <p><em>OpenSpec vs SpecKit across every dimension</em></p>
+
+    <h2>Philosophy Comparison</h2>
+
+    <div class="comparison">
+      <div class="tool-box openspec">
+        <h4>OpenSpec</h4>
+        <ul>
+          <li>Fluid, iterative</li>
+          <li>Brownfield-first</li>
+          <li>Single-command artifact creation</li>
+          <li>Explore before commit</li>
+        </ul>
+      </div>
+      <div class="tool-box speckit">
+        <h4>SpecKit</h4>
+        <ul>
+          <li>Structured, phased</li>
+          <li>Greenfield-optimized</li>
+          <li>Multi-command refinement</li>
+          <li>Constitution-first</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Feature-by-Feature</h2>
+
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>OpenSpec</th><th>SpecKit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Project principles</strong></td>
+          <td>❌ None</td>
+          <td>✅ Constitution</td>
+        </tr>
+        <tr>
+          <td><strong>Discovery phase</strong></td>
+          <td>✅ /opsx:explore (conversational)</td>
+          <td>⚠️ /speckit.clarify (structured)</td>
+        </tr>
+        <tr>
+          <td><strong>Artifact creation</strong></td>
+          <td>Single command</td>
+          <td>Multiple commands</td>
+        </tr>
+        <tr>
+          <td><strong>Brownfield support</strong></td>
+          <td>✅ Delta markers</td>
+          <td>⚠️ Basic</td>
+        </tr>
+        <tr>
+          <td><strong>Completion state</strong></td>
+          <td>✅ /opsx:archive</td>
+          <td>❌ Manual</td>
+        </tr>
+        <tr>
+          <td><strong>Reconciliation</strong></td>
+          <td>❌ None</td>
+          <td>✅ /speckit.converge</td>
+        </tr>
+        <tr>
+          <td><strong>Extension system</strong></td>
+          <td>⚠️ Schemas only</td>
+          <td>✅ Extensions/presets/bundles</td>
+        </tr>
+        <tr>
+          <td><strong>Cross-repo planning</strong></td>
+          <td>✅ Stores (beta)</td>
+          <td>❌ None</td>
+        </tr>
+        <tr>
+          <td><strong>Installation</strong></td>
+          <td>npm (Node.js)</td>
+          <td>uv/pip (Python)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>When to Choose Each</h2>
+
+    <table>
+      <thead>
+        <tr><th>Scenario</th><th>Better Choice</th><th>Why</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Brownfield changes</td>
+          <td><strong>OpenSpec</strong></td>
+          <td>Delta markers reduce spec size</td>
+        </tr>
+        <tr>
+          <td>Greenfield project</td>
+          <td><strong>SpecKit</strong></td>
+          <td>Constitution + structured phases</td>
+        </tr>
+        <tr>
+          <td>Quick iteration</td>
+          <td><strong>OpenSpec</strong></td>
+          <td>Less ceremony</td>
+        </tr>
+        <tr>
+          <td>Enterprise compliance</td>
+          <td><strong>SpecKit</strong></td>
+          <td>Presets for templates</td>
+        </tr>
+        <tr>
+          <td>Cross-repo features</td>
+          <td><strong>OpenSpec</strong></td>
+          <td>Stores feature (beta)</td>
+        </tr>
+        <tr>
+          <td>Deep customization</td>
+          <td><strong>SpecKit</strong></td>
+          <td>Extension ecosystem</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Check Your Understanding</h2>
+
+    <div class="quiz" data-correct="a" data-explanation="OpenSpec's delta markers (ADDED/MODIFIED/REMOVED) make it particularly suited for changes to existing codebases.">
+      <h4>For iterative changes to an existing codebase, which tool has stronger built-in support?</h4>
+      <ul class="quiz-options">
+        <li><button data-answer="a">OpenSpec (delta markers)</button></li>
+        <li><button data-answer="b">SpecKit (constitution)</button></li>
+        <li><button data-answer="c">Both are equivalent</button></li>
+        <li><button data-answer="d">Neither supports brownfield</button></li>
+      </ul>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <h2>Primary Source</h2>
+    <blockquote>
+      <a href="https://www.augmentcode.com/tools/best-spec-driven-development-tools">Best SDD Tools 2026</a> — Independent comparison
+    </blockquote>
+
+    <p class="teacher-reminder">
+      <strong>Ready to identify gaps?</strong> The next lesson focuses on what's missing and how to improve each tool.
+    </p>
+
+    <nav class="lesson-nav">
+      <a href="0003-speckit-philosophy.html">← Previous: SpecKit Philosophy</a>
+      <a href="0005-gaps-and-improvements.html">Next: Gaps & Improvements →</a>
+    </nav>
+  </article>
+  <script src="../assets/quiz.js"></script>
+</body>
+</html>

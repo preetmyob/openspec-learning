@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1: What is Spec-Driven Development?</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <article>
+    <h1>Lesson 1: What is Spec-Driven Development?</h1>
+    <p><em>The methodology that both OpenSpec and SpecKit implement</em></p>
+
+    <h2>The Problem: AI Coding Without a Contract</h2>
+
+    <p>When you prompt an AI coding assistant with "add dark mode to my app," you're starting a negotiation with no agreement. The AI interprets your request, makes assumptions about scope, and produces code. If the result isn't what you wanted, you either iterate through more prompts, manually fix the code, or start over.</p>
+
+    <p>This works for small tasks. It breaks down when:</p>
+    <ul>
+      <li>Changes span multiple files or services</li>
+      <li>Multiple team members need to understand what was built</li>
+      <li>You need to verify the implementation matches intent</li>
+      <li>You want to revisit decisions weeks later</li>
+    </ul>
+
+    <div class="insight">
+      <strong>Key Insight</strong>
+      The fundamental problem isn't AI capability — it's alignment. Without an explicit contract, human intent and AI output diverge.
+    </div>
+
+    <h2>The Solution: Spec First, Code Second</h2>
+
+    <p><strong>Spec-Driven Development (SDD)</strong> flips the traditional workflow. The specification becomes:</p>
+
+    <ol>
+      <li><strong>A contract</strong> — Human and AI agree on what to build before any code is written</li>
+      <li><strong>A source of truth</strong> — Tools use the spec to generate, test, and validate code</li>
+      <li><strong>Documentation</strong> — The spec persists as a record of intent and decisions</li>
+    </ol>
+
+    <h2>The SDD Workflow</h2>
+
+    <div class="workflow">
+      <div class="workflow-steps">
+        <span class="workflow-step">Requirements</span>
+        <span class="workflow-arrow">→</span>
+        <span class="workflow-step">Design</span>
+        <span class="workflow-arrow">→</span>
+        <span class="workflow-step">Tasks</span>
+        <span class="workflow-arrow">→</span>
+        <span class="workflow-step">Implementation</span>
+      </div>
+    </div>
+
+    <p>The key difference from ad-hoc prompting:</p>
+    <ul>
+      <li><strong>Each phase produces artifacts</strong> — Written documents, not chat messages</li>
+      <li><strong>Human reviews before implementation</strong> — You approve the plan before code is generated</li>
+      <li><strong>Artifacts live in the repo</strong> — Version-controlled alongside your code</li>
+    </ul>
+
+    <h2>Static vs Living Specs</h2>
+
+    <p>Both OpenSpec and SpecKit use <strong>static specs</strong> — written once, then manually maintained. This is a deliberate trade-off: portability and simplicity over automatic synchronization.</p>
+
+    <table>
+      <thead>
+        <tr><th>Static Specs</th><th>Living Specs</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Manually maintained</td><td>Auto-update with code</td></tr>
+        <tr><td>Can drift from implementation</td><td>Always synchronized</td></tr>
+        <tr><td>Portable, vendor-neutral</td><td>Often vendor-locked</td></tr>
+        <tr><td>OpenSpec, SpecKit</td><td>Augment Cosmos</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Check Your Understanding</h2>
+
+    <div class="quiz" data-correct="b" data-explanation="The spec is the contract that both human and AI work from.">
+      <h4>What is the primary purpose of a specification in SDD?</h4>
+      <ul class="quiz-options">
+        <li><button data-answer="a">To document code after implementation</button></li>
+        <li><button data-answer="b">To align human intent with AI output before code</button></li>
+        <li><button data-answer="c">To replace the need for code review entirely</button></li>
+        <li><button data-answer="d">To automatically generate all tests for features</button></li>
+      </ul>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <h2>Primary Source</h2>
+    <blockquote>
+      <a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html">Understanding Spec-Driven-Development</a> — Martin Fowler
+    </blockquote>
+
+    <p class="teacher-reminder">
+      <strong>Questions?</strong> Ask me to clarify any concept or show how SDD applies to your workflow with Cursor and Claude Code.
+    </p>
+
+    <nav class="lesson-nav">
+      <span></span>
+      <a href="0002-openspec-philosophy.html">Next: OpenSpec Philosophy →</a>
+    </nav>
+  </article>
+  <script src="../assets/quiz.js"></script>
+</body>
+</html>

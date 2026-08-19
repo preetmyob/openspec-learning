@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2: OpenSpec Philosophy & Workflow</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <article>
+    <h1>Lesson 2: OpenSpec Philosophy & Workflow</h1>
+    <p><em>Fluid, iterative, brownfield-first</em></p>
+
+    <h2>OpenSpec's Philosophy</h2>
+
+    <p>OpenSpec explicitly states its values:</p>
+    <pre>→ fluid not rigid
+→ iterative not waterfall
+→ easy not complex
+→ built for brownfield not just greenfield</pre>
+
+    <dl>
+      <dt><strong>Fluid not rigid</strong></dt>
+      <dd>Update any artifact at any time. No strict phase gates.</dd>
+      
+      <dt><strong>Built for brownfield</strong></dt>
+      <dd>Delta markers (<code>ADDED</code>, <code>MODIFIED</code>, <code>REMOVED</code>) track changes relative to existing code.</dd>
+    </dl>
+
+    <h2>The OpenSpec Workflow</h2>
+
+    <div class="workflow">
+      <div class="workflow-steps">
+        <span class="workflow-step">/opsx:explore</span>
+        <span class="workflow-arrow">→</span>
+        <span class="workflow-step">/opsx:propose</span>
+        <span class="workflow-arrow">→</span>
+        <span class="workflow-step">/opsx:apply</span>
+        <span class="workflow-arrow">→</span>
+        <span class="workflow-step">/opsx:archive</span>
+      </div>
+    </div>
+
+    <h3>Explore (Optional)</h3>
+    <p><code>/opsx:explore</code> is a "no-stakes thinking partner" — reads your codebase, weighs options, helps shape a plan before formal commitment.</p>
+
+    <h3>Propose</h3>
+    <p><code>/opsx:propose &lt;change-name&gt;</code> creates all artifacts at once:</p>
+    <pre>openspec/changes/add-dark-mode/
+├── proposal.md     # Why
+├── design.md       # How
+├── tasks.md        # Checklist
+└── specs/          # Requirements</pre>
+
+    <div class="insight">
+      <strong>Key Differentiator</strong>
+      OpenSpec generates all artifacts in one command. SpecKit requires multiple commands.
+    </div>
+
+    <h3>Apply & Archive</h3>
+    <p><code>/opsx:apply</code> implements tasks. <code>/opsx:archive</code> moves completed work to <code>archive/</code> with timestamp.</p>
+
+    <h2>Delta Markers</h2>
+    <p>OpenSpec's brownfield superpower:</p>
+    <pre>## ADDED Requirements
+### Theme selection
+The app SHALL let users switch themes.
+
+## MODIFIED Requirements  
+### User preferences
+Now includes theme selection.</pre>
+
+    <h2>Strengths</h2>
+    <ul>
+      <li><strong>Low ceremony</strong> — One command creates all artifacts</li>
+      <li><strong>Brownfield-native</strong> — Delta markers reduce spec size</li>
+      <li><strong>Explore-first</strong> — Thinking before committing</li>
+      <li><strong>Clear archival</strong> — Completed work moves out of the way</li>
+    </ul>
+
+    <h2>Potential Gaps</h2>
+    <ul>
+      <li>No constitution/principles (SpecKit has this)</li>
+      <li>No extension system (schemas only)</li>
+      <li>Less granular phase control</li>
+    </ul>
+
+    <h2>Check Your Understanding</h2>
+    <div class="quiz" data-correct="b" data-explanation="Delta markers (ADDED, MODIFIED, REMOVED) track changes against existing functionality.">
+      <h4>What are "delta markers" in OpenSpec?</h4>
+      <ul class="quiz-options">
+        <li><button data-answer="a">Git diff annotations automatically generated</button></li>
+        <li><button data-answer="b">ADDED/MODIFIED/REMOVED labels in spec documents</button></li>
+        <li><button data-answer="c">Version numbers assigned to each spec change</button></li>
+        <li><button data-answer="d">Comments marking lines that AI should modify</button></li>
+      </ul>
+      <div class="quiz-feedback"></div>
+    </div>
+
+    <h2>Primary Source</h2>
+    <blockquote>
+      <a href="https://github.com/Fission-AI/OpenSpec/blob/main/docs/getting-started.md">OpenSpec Getting Started Guide</a>
+    </blockquote>
+
+    <p class="teacher-reminder">
+      <strong>Want to see it in action?</strong> Ask me to walk through the animal-finder example in this repo.
+    </p>
+
+    <nav class="lesson-nav">
+      <a href="0001-what-is-sdd.html">← Previous: What is SDD?</a>
+      <a href="0003-speckit-philosophy.html">Next: SpecKit Philosophy →</a>
+    </nav>
+  </article>
+  <script src="../assets/quiz.js"></script>
+</body>
+</html>
